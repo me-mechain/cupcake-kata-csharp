@@ -16,16 +16,20 @@ public class Bundle : ICake
     }
 
     public string Name() => $"Bundle of ({Description()})";
-
+    
     public string Description()
     {
         var bundleContent = _cakes.Select(cake => $"{cake.Value} {cake.Key.Name()}").ToList();
         return string.Join(" + ", bundleContent);
     }
+    
+    public decimal TotalPrice()
+    {
+        throw new NotImplementedException();
+    }
 
-    public decimal TotalPrice() => ContentPrice() - ContentPrice() * (decimal)0.1;
-
-    private decimal ContentPrice() => _cakes.Sum(cake => cake.Key.TotalPrice() * cake.Value);
-
-    public string PrintPrice() => $"{TotalPrice()}$";
+    public string PrintPrice()
+    {
+        throw new NotImplementedException();
+    }
 }
