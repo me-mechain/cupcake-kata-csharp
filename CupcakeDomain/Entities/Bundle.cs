@@ -14,18 +14,16 @@ public class Bundle : ICake
             _cakes.Add(cakeGroup.First(), cakeGroup.Count());
         }
     }
-
-    public string Name() => $"Bundle of ({Description()})";
-
-    public string Description()
+    
+    public string Name() => $"Bundle of ({string.Join(" + ", _cakes.Select(cake => $"{cake.Value} {cake.Key.Name()}"))})";
+    
+    public decimal TotalPrice()
     {
-        var bundleContent = _cakes.Select(cake => $"{cake.Value} {cake.Key.Name()}").ToList();
-        return string.Join(" + ", bundleContent);
+        throw new NotImplementedException();
     }
 
-    public decimal TotalPrice() => ContentPrice() - ContentPrice() * (decimal)0.1;
-
-    private decimal ContentPrice() => _cakes.Sum(cake => cake.Key.TotalPrice() * cake.Value);
-
-    public string PrintPrice() => $"{TotalPrice()}$";
+    public string PrintPrice()
+    {
+        throw new NotImplementedException();
+    }
 }
