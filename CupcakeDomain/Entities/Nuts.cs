@@ -12,7 +12,4 @@ public class Nuts : WithTopping
     }
     
     public string Name() => $"{_cake.Name()} {(_cake is WithTopping ? WithTopping.And : WithTopping.With)} 🥜";
-    public decimal TotalPrice() => _cake.TotalPrice() + (decimal)0.2;
-
-    public string PrintPrice() => $"{TotalPrice()}$";
 }
